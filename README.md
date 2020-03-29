@@ -11,23 +11,17 @@ Add New Car| Mark Park Location | Menu |
 # About Project
 StopCar is a simple app that detects your location with address on map and save it in database.
 you can view the saved location again and start direction to the place.
-* Some Features:
 
-add multiple cars
+Some Features:
 
-add car specifications like: name,model,color and number plate
-
-show traffic
-
-park history
-
-addressing
-
-dark theme
-
-change font
-
-change language
+* add multiple cars
+* add car specifications like: name,model,color and number plate
+* show traffic
+* park history
+* addressing
+* dark theme
+* change font
+* change language
 
 # Run Project
 * First create a local.properties in root folder
