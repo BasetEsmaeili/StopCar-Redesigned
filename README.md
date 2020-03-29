@@ -12,18 +12,26 @@ Add New Car| Mark Park Location | Menu |
 StopCar is a simple app that detects your location with address on map and save it in database.
 you can view the saved location again and start direction to the place.
 * Some Features:
+
 add multiple cars
+
 add car specifications like: name,model,color and number plate
+
 show traffic
+
 park history
+
 addressing
+
 dark theme
+
 change font
+
 change language
 
 # Run Project
 * First create a local.properties in root folder
-* Get a GoogleMap Api Key and add to the properties file with "google_map_api_key" tag
+* Get a [GoogleMap](https://cloud.google.com/maps-platform/)  Api Key and add to the properties file with "google_map_api_key" tag
 * Get a [Neshan](https://developers.neshan.org/)  Api Key and add to the properties file with "neshan_api_key" tag
 
 Now you can open the project in AndroidStudio and build/Test/Run it.
@@ -41,7 +49,7 @@ Now you can open the project in AndroidStudio and build/Test/Run it.
 - [Lottie](https://airbnb.design/lottie/)
 - [Google Map Android](https://developers.google.com/maps/documentation/android-sdk/intro)
 
-#TODO
+# TODO
 * Edit the car
 * Notification Reminder
 * Add Spotlight View
