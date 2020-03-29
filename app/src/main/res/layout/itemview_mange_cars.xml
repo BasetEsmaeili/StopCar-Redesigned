@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ir.esmaeili.stopcar.ui.fragments.cars.ManageCarsItemViewViewModel" />
+
+        <import type="android.graphics.Color" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="?attr/cardItemBackgroundColor"
+        app:cardCornerRadius="@dimen/radius_card_corner"
+        app:cardElevation="@dimen/elevation_stn">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_manage_icon"
+                android:layout_width="@dimen/_82mdp"
+                android:layout_height="@dimen/_82mdp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin_stn"
+                android:layout_marginTop="@dimen/margin_stn"
+                android:layout_marginBottom="@dimen/margin_stn"
+                app:colorFilter="@{Color.parseColor(viewModel.carColor)}"
+                app:srcCompat="@drawable/ic_history_car_icon" />
+
+
+            <TextView
+                android:id="@+id/tv_manage_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/_24mdp"
+                android:layout_toEndOf="@id/img_manage_icon"
+                android:text="@{viewModel.carName}"
+                android:textColor="?attr/carNameTextColor"
+                android:textSize="@dimen/_18font_mdp"
+                tools:text="@string/app_name" />
+
+            <include
+                layout="@layout/view_plaque"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_stn"
+                android:layout_below="@id/tv_manage_title"
+                android:layout_marginBottom="@dimen/margin_stn"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_toEndOf="@id/img_manage_icon" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

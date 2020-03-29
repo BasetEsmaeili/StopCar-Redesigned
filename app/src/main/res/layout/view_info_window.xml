@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/radius_corner_stn"
+    app:cardBackgroundColor="?attr/cardViewBackgroundColor">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_info_address"
+        android:layout_width="@dimen/height_text_view_info"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="@dimen/padding_mini"
+        android:textColor="?attr/textViewColor" />
+</com.google.android.material.card.MaterialCardView>

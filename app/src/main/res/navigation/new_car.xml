@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_car"
+    app:startDestination="@id/fragmentNewCar">
+    <include app:graph="@navigation/main" />
+    <fragment
+        android:id="@+id/fragmentNewCar"
+        android:name="ir.esmaeili.stopcar.ui.fragments.newcar.NewCarFragment"
+        tools:layout="@layout/fragment_new_car">
+        <action
+            android:id="@+id/action_fragmentNewCar_to_dialogSelectCarColor"
+            app:destination="@id/dialogSelectCarColor" />
+        <action
+            android:id="@+id/action_fragmentNewCar_to_MainFragment"
+            app:destination="@id/main"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/new_car"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/dialogSelectCarColor"
+        android:name="ir.esmaeili.stopcar.ui.fragments.newcar.ColorPickDialogFragment"
+        android:label="@string/label_select_car_color"
+        tools:layout="@layout/dialog_pick_color" />
+</navigation>

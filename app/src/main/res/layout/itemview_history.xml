@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ir.esmaeili.stopcar.ui.fragments.history.HistoryItemViewViewModel" />
+
+        <import type="android.graphics.Color" />
+
+        <import type="androidx.core.text.HtmlCompat" />
+
+        <import type="ir.esmaeili.stopcar.utils.Constants" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:onClick="@{()->viewModel.onHistoryItemClick()}"
+        app:cardBackgroundColor="?attr/cardItemBackgroundColor"
+        app:cardCornerRadius="@dimen/radius_card_corner"
+        app:cardElevation="@dimen/elevation_stn">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_history_icon"
+                android:layout_width="@dimen/_65mdp"
+                android:layout_height="@dimen/_65mdp"
+                android:layout_marginStart="@dimen/margin_stn"
+                app:colorFilter="@{Color.parseColor(viewModel.carColor)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ic_history_car_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_history_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_stn"
+                android:text="@{viewModel.carName+' '+ viewModel.carModel}"
+                android:textColor="?attr/carNameTextColor"
+                android:textSize="@dimen/_18font_mdp"
+                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintStart_toEndOf="@+id/img_history_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/app_name" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_history_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:layout_marginEnd="@dimen/margin_stn"
+                android:text="@{HtmlCompat.fromHtml(Constants.TODAY_VIEW, HtmlCompat.FROM_HTML_MODE_LEGACY)}"
+                android:textColor="@{Color.parseColor(viewModel.carColor)}"
+                android:textSize="@dimen/_38font_mdp"
+                android:visibility="@{viewModel.isToday ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@+id/view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="b" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/_8mdp"
+                android:layout_marginEnd="@dimen/_8mdp"
+                android:background="?attr/lineColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_history_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_history_address"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_stn"
+                android:layout_marginTop="@dimen/margin_stn"
+                android:layout_marginEnd="@dimen/margin_stn"
+                android:layout_marginBottom="@dimen/margin_stn"
+                android:drawableStart="@drawable/ic_address"
+                android:drawablePadding="@dimen/padding_stn"
+                android:ellipsize="end"
+                android:gravity="end|center_vertical"
+                android:maxLines="1"
+                android:text="@{viewModel.carParkAddress}"
+                android:textColor="?attr/textViewColor"
+                app:drawableTint="?attr/textViewColor"
+                app:layout_constraintBottom_toTopOf="@+id/view8"
+                app:layout_constraintEnd_toStartOf="@+id/view4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view"
+                tools:text="تهران ستار خان" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_6mdp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="@dimen/_6mdp"
+                android:background="?attr/lineColor"
+                app:layout_constraintBottom_toTopOf="@id/view8"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_history_date_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_stn"
+                android:layout_marginEnd="@dimen/margin_stn"
+                android:text="@string/label_date_park"
+                android:textColor="?attr/parkStatusTint"
+                app:layout_constraintEnd_toStartOf="@+id/view2"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_history_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mini"
+                android:gravity="center"
+                android:maxLines="1"
+                android:paddingStart="@dimen/padding_stn"
+                android:paddingEnd="@dimen/padding_stn"
+                android:text="@{viewModel.carParkDate}"
+                android:textColor="?attr/textViewColor"
+                app:layout_constraintEnd_toStartOf="@+id/view2"
+                app:layout_constraintStart_toEndOf="@+id/view3"
+                app:layout_constraintTop_toBottomOf="@+id/txt_history_date_lbl"
+                tools:text="۱۲ ۹۶ تیر" />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_6mdp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="@dimen/_6mdp"
+                android:background="?attr/lineColor"
+                app:layout_constraintBottom_toTopOf="@id/view8"
+                app:layout_constraintEnd_toStartOf="@+id/txt_history_date_lbl"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_history_clock_lbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_stn"
+                android:layout_marginEnd="@dimen/margin_stn"
+                android:gravity="center"
+                android:text="@string/label_clock_park"
+                android:textColor="?attr/parkStatusTint"
+                app:layout_constraintEnd_toStartOf="@+id/view3"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt_history_clock"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_mini"
+                android:gravity="center"
+                android:paddingStart="@dimen/padding_stn"
+                android:paddingEnd="@dimen/padding_stn"
+                android:text="@{viewModel.carParkClock}"
+                android:textColor="?attr/textViewColor"
+                app:layout_constraintEnd_toStartOf="@+id/view3"
+                app:layout_constraintStart_toEndOf="@+id/view4"
+                app:layout_constraintTop_toBottomOf="@+id/txt_history_clock_lbl"
+                tools:text="۱۲:۴۵" />
+
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_stn"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="@dimen/margin_stn"
+                android:background="?attr/lineColor"
+                app:layout_constraintBottom_toTopOf="@id/view8"
+                app:layout_constraintEnd_toStartOf="@+id/txt_history_clock_lbl"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <View
+                android:id="@+id/view8"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/_8mdp"
+                android:layout_marginTop="@dimen/_6mdp"
+                android:layout_marginEnd="@dimen/_8mdp"
+                android:background="?attr/lineColor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_history_clock" />
+
+            <include
+                layout="@layout/view_plaque"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginStart="@dimen/margin_stn"
+                android:layout_marginTop="@dimen/_8mdp"
+                android:layout_marginEnd="@dimen/margin_stn"
+                android:layout_marginBottom="@dimen/margin_stn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view8"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

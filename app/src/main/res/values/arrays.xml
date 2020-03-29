@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fonts">
+        <item>Vazir</item>
+        <item>Tanha</item>
+        <item>Parastu</item>
+        <item>Meykhak</item>
+    </string-array>
+    <string-array name="app_languages">
+        <item>English</item>
+        <item>Persian</item>
+    </string-array>
+    <string-array name="fonts_number">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="app_languages_number">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+</resources>

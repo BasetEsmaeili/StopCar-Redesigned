@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ir.esmaeili.stopcar.ui.fragments.intro.IntroViewModel" />
+
+        <import type="ir.esmaeili.stopcar.utils.Constants" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor"
+        tools:context=".ui.fragments.intro.IntroFragment">
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager_intro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layoutDirection="ltr"
+            app:items="@{viewModel.introItems}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.rd.PageIndicatorView
+            android:id="@+id/indicator_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_24mdp"
+            android:layout_marginBottom="@dimen/_42mdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:piv_animationType="worm"
+            app:piv_interactiveAnimation="true"
+            app:piv_padding="@dimen/padding_stn"
+            app:piv_radius="@dimen/radius_pager"
+            app:piv_selectedColor="?attr/indicatorSelectedColor"
+            app:piv_unselectedColor="@color/unselectedColor" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_intro_next"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:onClick="@{(value)->viewModel.setEvent(Constants.EVENT_NEXT_ITEM)}"
+            android:padding="@dimen/_8mdp"
+            android:text="@string/label_next"
+            android:textColor="?attr/buttonTextColor"
+            android:textSize="@dimen/_14font_mdp"
+            app:iconGravity="textEnd"
+            app:iconSize="@dimen/_14font_mdp"
+            app:iconTint="?attr/buttonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:rippleColor="?attr/rippleColor"
+            android:layout_marginBottom="@dimen/_24mdp"
+            android:layout_marginStart="@dimen/_24mdp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,162 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/windowScreenAnimation</item>
+        <item name="backgroundColor">@android:color/white</item>
+        <item name="textViewColor">@color/color_light_text_color</item>
+        <item name="progressbarColor">@color/colorAccent</item>
+        <item name="buttonTextColor">@color/colorAccent</item>
+        <item name="rippleColor">@color/colorAccentRipple</item>
+        <item name="indicatorSelectedColor">@color/colorAccent</item>
+        <item name="textViewColorGray">@color/color_light_text_color</item>
+        <item name="titleTextColor">@android:color/black</item>
+        <item name="toolbarTextColor">@color/colorMain</item>
+        <item name="hintTextColor">@color/color_light_text_color</item>
+        <item name="strokeColor">@color/bg_edit_outline_color_light</item>
+        <item name="editTextTextColor">@color/color_light_text_color</item>
+        <item name="plaqueDrawable">@drawable/car_plaque</item>
+        <item name="bottomNavigationTheme">@style/BottomNavigationDay</item>
+        <item name="bottomNavigationBackground">@android:color/white</item>
+        <item name="bottomNavigationTint">@color/bottom_navigation_selector</item>
+        <item name="cardViewBackgroundColor">@android:color/white</item>
+        <item name="appNameTextColor">@color/colorAccent</item>
+        <item name="cardItemBackgroundColor">@android:color/white</item>
+        <item name="carNameTextColor">@android:color/black</item>
+        <item name="parkStatusTint">@color/colorAccent</item>
+        <item name="lineColor">@color/unselectedColor</item>
+        <item name="floatActionButtonBackgroundTint">@android:color/white</item>
+        <item name="buttonBackgroundTint">@color/colorAccent</item>
+        <item name="buttonBackgroundRippleColor">@color/colorAccentRipple</item>
+        <item name="alertDialogTheme">@style/LightAlertDialogTheme</item>
+
+    </style>
+
+    <style name="DarkTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_night_background</item>
+        <item name="colorPrimaryDark">@color/color_night_background</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/windowScreenAnimation</item>
+        <item name="backgroundColor">@color/color_night_background</item>
+        <item name="textViewColor">@android:color/white</item>
+        <item name="progressbarColor">@android:color/white</item>
+        <item name="buttonTextColor">@android:color/white</item>
+        <item name="rippleColor">@color/colorAccentRippleNight</item>
+        <item name="indicatorSelectedColor">@android:color/white</item>
+        <item name="textViewColorGray">@color/color_night_text_color</item>
+        <item name="titleTextColor">@android:color/white</item>
+        <item name="toolbarTextColor">@android:color/white</item>
+        <item name="hintTextColor">@color/color_hint_edit_text</item>
+        <item name="strokeColor">@color/bg_edit_outline_color_dark</item>
+        <item name="editTextTextColor">@android:color/white</item>
+        <item name="plaqueDrawable">@drawable/car_plaque_white</item>
+        <item name="bottomNavigationTheme">@style/BottomNavigationNight</item>
+        <item name="bottomNavigationBackground">@color/color_bottom_navigation_night</item>
+        <item name="bottomNavigationTint">@color/bottom_navigation_selector_dark</item>
+        <item name="cardViewBackgroundColor">@color/color_bottom_navigation_night</item>
+        <item name="appNameTextColor">@android:color/white</item>
+        <item name="cardItemBackgroundColor">@color/color_bottom_navigation_night</item>
+        <item name="carNameTextColor">@android:color/white</item>
+        <item name="parkStatusTint">@color/color_alert_message</item>
+        <item name="lineColor">@color/color_line_night</item>
+        <item name="floatActionButtonBackgroundTint">@color/color_card_item_background</item>
+        <item name="buttonBackgroundTint">@color/color_card_item_background</item>
+        <item name="buttonBackgroundRippleColor">@color/rippleColor</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@color/color_preference_title</item>
+        <item name="android:textColorSecondary">@color/color_location_none</item>
+        <item name="alertDialogTheme">@style/DarkAlertDialogTheme</item>
+    </style>
+
+    <style name="ToolbarDoneStyle">
+        <item name="android:homeAsUpIndicator">@drawable/ic_done_gray_24dp</item>
+    </style>
+
+    <style name="DarkAlertDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@color/color_night_background</item>
+        <item name="colorPrimary">@color/color_night_background</item>
+        <item name="colorAccent">@android:color/white</item>
+        <item name="textColorAlertDialogListItem">@android:color/white</item>
+        <item name="buttonBarNegativeButtonStyle">@style/DarkDialogButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/DarkDialogButtonStyle</item>
+    </style>
+
+    <style name="LightAlertDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:background">@color/color_white</item>
+        <item name="colorPrimary">@color/color_white</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="buttonBarNegativeButtonStyle">@style/LightDialogButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/LightDialogButtonStyle</item>
+    </style>
+
+    <style name="DarkDialogButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="LightDialogButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="NewCarInputTextStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">?attr/strokeColor</item>
+        <item name="boxStrokeWidth">.5dp</item>
+        <item name="endIconMode">clear_text</item>
+        <item name="endIconTint">?attr/strokeColor</item>
+        <item name="hintTextColor">?attr/hintTextColor</item>
+        <item name="android:textColorHint">?attr/hintTextColor</item>
+    </style>
+
+    <style name="NewCarPlaqueInputTextStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">?attr/strokeColor</item>
+        <item name="boxStrokeWidth">.5dp</item>
+        <item name="endIconMode">none</item>
+        <item name="endIconTint">?attr/strokeColor</item>
+        <item name="hintTextColor">?attr/hintTextColor</item>
+        <item name="android:textColorHint">?attr/hintTextColor</item>
+    </style>
+
+
+    <style name="NewCarEditTextsTheme">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccentDark</item>
+    </style>
+
+    <style name="BottomNavigationDay">
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccentDark</item>
+    </style>
+
+    <style name="BottomNavigationNight">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+    </style>
+
+    <style name="ToolbarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/size_toolbar_new_park</item>
+    </style>
+
+    <style name="windowScreenAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="MinisterFont">
+        <item name="android:fontFamily">@font/vazir</item>
+    </style>
+
+    <style name="AloneFont">
+        <item name="android:fontFamily">@font/tanha</item>
+    </style>
+
+    <style name="SwallowFont">
+        <item name="android:fontFamily">@font/parastoo</item>
+    </style>
+
+    <style name="ClovesFont">
+        <item name="android:fontFamily">@font/mikhak</item>
+    </style>
+</resources>

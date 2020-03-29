@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ir.esmaeili.stopcar.ui.fragments.park.NewParkViewModel" />
+
+        <import type="ir.esmaeili.stopcar.utils.Constants" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/container_park_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_address_view"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="@dimen/margin_medium"
+            android:animateLayoutChanges="true"
+            android:visibility="gone"
+            app:cardBackgroundColor="?attr/cardViewBackgroundColor"
+            app:cardCornerRadius="@dimen/padding_mini"
+            tools:visibility="visible">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar_newPark"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/cardViewBackgroundColor"
+                app:subtitleTextColor="?attr/titleTextColor"
+                app:titleTextAppearance="@style/ToolbarTitle"
+                app:titleTextColor="?attr/titleTextColor" />
+
+            <ProgressBar
+                android:id="@+id/progressbar_park_geo"
+                android:layout_width="@dimen/width_progressbar_new_park"
+                android:layout_height="match_parent"
+                android:layout_gravity="end|center_vertical"
+                android:padding="8dp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <ImageView
+            android:id="@+id/img_new_park_marker"
+            android:layout_width="@dimen/width_map_marker"
+            android:layout_height="@dimen/height_map_marker"
+            android:layout_gravity="center"
+            android:layout_marginBottom="32dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_park_location"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:animateLayoutChanges="true">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/float_park_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:onClick="@{(event)->viewModel.setEventHandler(Constants.EVENT_GET_LOCATION)}"
+                android:visibility="gone"
+                app:backgroundTint="?attr/floatActionButtonBackgroundTint"
+                app:elevation="@dimen/elevation_mini"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/rippleColor"
+                app:srcCompat="@drawable/ic_my_location_gray_24dp"
+                tools:visibility="visible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_park_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_stn"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:onClick="@{(event)->viewModel.setEventHandler(Constants.EVENT_SAVE_PARK)}"
+                android:padding="@dimen/padding_medium"
+                android:text="@string/label_save_park"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:visibility="gone"
+                app:backgroundTint="?attr/buttonBackgroundTint"
+                app:elevation="@dimen/elevation_mini"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/float_park_location"
+                app:rippleColor="?attr/buttonBackgroundRippleColor"
+                tools:visibility="visible" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

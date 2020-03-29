@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#D8D8D8</color>
+    <color name="colorAccent">#5AB14C</color>
+    <color name="colorAccentRipple">#335AB14C</color>
+    <color name="colorAccentDark">#4E9B40</color>
+    <color name="unselectedColor">#80AAAAAA</color>
+    <color name="colorMain">#828182</color>
+    <color name="color_error_message">#D32F2F</color>
+    <color name="color_success_message">#5CCA67</color>
+    <color name="color_message_message">#0288D1</color>
+    <color name="color_alert_message">#FBC02D</color>
+    <color name="color_white">#ffffff</color>
+    <color name="rippleColor">#1A999999</color>
+    <color name="color_blue_plaque">#469fe5</color>
+    <color name="color_night_background">#1F2326</color>
+    <color name="color_light_text_color">#808080</color>
+    <color name="colorAccentRippleNight">#4DFFFFFF</color>
+    <color name="color_night_text_color">#B3FFFFFF</color>
+    <color name="color_hint_edit_text">#B1B1B1</color>
+    <color name="color_bottom_navigation_night">#24282B</color>
+    <color name="color_card_item_background">#4E555F</color>
+    <color name="color_line_night">#E6FFFFFF</color>
+    <color name="color_location_none">#B3FFFFFF</color>
+    <color name="color_preference_title">#C7FFFFFF</color>
+    <color name="color_preference_divider">#66FFFFFF</color>
+    <color name="color_float_background_tint_night">#857A7A</color>
+    <color name="color_float_background_tint">#0288D1</color>
+</resources>

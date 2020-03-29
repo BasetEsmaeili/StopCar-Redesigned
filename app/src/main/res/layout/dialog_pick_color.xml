@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="ir.esmaeili.stopcar.adapter.ColorPickAdapter" />
+
+        <variable
+            name="animation"
+            type="jp.wasabeef.recyclerview.animators.BaseItemAnimator" />
+
+        <variable
+            name="layoutManager"
+            type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_pick_color"
+            itemsDecoration="@{8}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium"
+            bind:adapter="@{adapter}"
+            bind:itemAnimator="@{animation}"
+            bind:layoutManager="@{layoutManager}"
+            tools:itemCount="10"
+            tools:listitem="@layout/itemview_color"
+            tools:orientation="horizontal" />
+    </FrameLayout>
+</layout>

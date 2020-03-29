@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="sharedViewModel"
+            type="ir.esmaeili.stopcar.utils.SharedViewModel" />
+
+        <variable
+            name="viewModel"
+            type="ir.esmaeili.stopcar.ui.fragments.cars.NewCarDialogViewModel" />
+
+        <variable
+            name="adapter"
+            type="ir.esmaeili.stopcar.adapter.ColorPickAdapter" />
+
+        <variable
+            name="slideInUpAnimator"
+            type="jp.wasabeef.recyclerview.animators.SlideInUpAnimator" />
+
+        <variable
+            name="layoutManager"
+            type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
+
+        <import type="ir.esmaeili.stopcar.utils.Constants" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/backgroundColor"
+        tools:context=".ui.fragments.newcar.NewCarFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/cardViewBackgroundColor"
+                android:theme="@style/ToolbarDoneStyle"
+                app:onToolbarIconClick="@{viewModel}"
+                app:sharedViewModel="@{sharedViewModel}"
+                app:title="@string/label_add_new_car"
+                app:titleTextColor="?attr/toolbarTextColor" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:padding="@dimen/padding_stn"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_new_car_name"
+                    style="@style/NewCarInputTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_car_name"
+                    app:changeListener="@{viewModel}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_new_car_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="?attr/editTextTextColor" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_new_car_model"
+                    style="@style/NewCarInputTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_car_model"
+                    app:changeListener="@{viewModel}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/input_new_car_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_new_car_model"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:singleLine="true"
+                        android:textColor="?attr/editTextTextColor" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_new_car_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_mini"
+                    android:background="?attr/selectableItemBackground"
+                    android:drawableStart="@drawable/ic_arrow_drop_down_gray_24dp"
+                    android:drawableEnd="@drawable/ic_car_color"
+                    android:drawablePadding="@dimen/padding_stn"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:layoutDirection="ltr"
+                    android:onClick="@{(value)->viewModel.setEventHandler(Constants.EVENT_EXPAND_COLOR_PICKER)}"
+                    android:paddingTop="@dimen/padding_mini"
+                    android:paddingBottom="@dimen/padding_mini"
+                    android:text="@string/label_select_car_color"
+                    android:textColor="?attr/textViewColor"
+                    android:textSize="@dimen/_12mdp"
+                    app:drawableTint="?attr/textViewColor"
+                    app:layout_constraintTop_toBottomOf="@id/input_new_car_model" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_new_car_color"
+                    itemsDecoration="@{8}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_new_car_color"
+                    bind:adapter="@{adapter}"
+                    bind:itemAnimator="@{slideInUpAnimator}"
+                    bind:layoutManager="@{layoutManager}"
+                    tools:visibility="visible" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/view_enter_plaque_help"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_new_car_color">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_new_car_plaque_lbl"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/label_enter"
+                        android:textColor="?attr/textViewColor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/img_new_car_plaque"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.45" />
+
+                    <ImageView
+                        android:id="@+id/img_new_car_plaque"
+                        android:layout_width="@dimen/_92mdp"
+                        android:layout_height="@dimen/_42mdp"
+                        android:layout_marginStart="16dp"
+                        android:src="?attr/plaqueDrawable"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tv_new_car_plaque_enter_lbl"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tv_new_car_plaque_enter_lbl"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/label_enter_plaque"
+                        android:textColor="?attr/textViewColor"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.45" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="rtl"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:weightSum="4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_enter_plaque_help"
+                    tools:layout_editor_absoluteY="72dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_new_car_ir_cde"
+                        style="@style/NewCarPlaqueInputTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_stn"
+                        android:layout_weight="1"
+                        android:hint="@string/hit_car_country_name"
+                        app:changeListener="@{viewModel}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_irCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:singleLine="true"
+                            android:textColor="?attr/editTextTextColor" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_new_car_three_part"
+                        style="@style/NewCarPlaqueInputTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_stn"
+                        android:layout_weight="1"
+                        android:hint="@string/hint_car_plaque_part_three"
+                        app:changeListener="@{viewModel}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_part_three_code"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            android:singleLine="true"
+                            android:textColor="?attr/editTextTextColor" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_new_car_keyword"
+                        style="@style/NewCarPlaqueInputTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_stn"
+                        android:layout_weight="1"
+                        android:hint="@string/hint_plaque_keyword"
+                        app:changeListener="@{viewModel}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_new_car_keyword"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="text"
+                            android:singleLine="true"
+                            android:textColor="?attr/editTextTextColor" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/input_new_car_two_part"
+                        style="@style/NewCarPlaqueInputTextStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_stn"
+                        android:layout_weight="1"
+                        android:hint="@string/hint_plaque_two_part"
+                        app:changeListener="@{viewModel}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_new_car_two_part"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:singleLine="true"
+                            android:textColor="?attr/editTextTextColor" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

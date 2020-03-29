@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="layoutManager"
+            type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
+
+        <variable
+            name="adapter"
+            type="ir.esmaeili.stopcar.adapter.ManageCarsAdapter" />
+
+        <variable
+            name="animation"
+            type="jp.wasabeef.recyclerview.animators.BaseItemAnimator" />
+
+        <variable
+            name="viewModel"
+            type="ir.esmaeili.stopcar.ui.fragments.cars.ManageCarsViewModel" />
+
+        <import type="ir.esmaeili.stopcar.utils.Constants" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_manage_cars"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:itemsDecoration="@{14}"
+            app:setRecyclerViewScrollListener="@{btnManageAddCar}"
+            bind:adapter="@{adapter}"
+            bind:itemAnimator="@{animation}"
+            bind:layoutManager="@{layoutManager}" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/btn_manage_add_car"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="@dimen/margin_medium"
+            android:onClick="@{(value)->viewModel.setEventHandler(Constants.EVENT_SAVE_NEW_CAR)}"
+            android:text="@string/label_add_new_car"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            app:backgroundTint="?attr/buttonBackgroundTint"
+            app:icon="@drawable/ic_add_white_24dp"
+            app:iconTint="@android:color/white"
+            app:rippleColor="@color/rippleColor" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

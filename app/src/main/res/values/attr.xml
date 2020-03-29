@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="themes">
+        <attr name="backgroundColor" format="color" />
+        <attr name="textViewColor" format="color" />
+        <attr name="progressbarColor" format="color" />
+        <attr name="buttonTextColor" format="color" />
+        <attr name="rippleColor" format="color" />
+        <attr name="indicatorSelectedColor" format="color" />
+        <attr name="textViewColorGray" format="color" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="toolbarTextColor" format="color" />
+        <attr name="hintTextColor" format="color" />
+        <attr name="strokeColor" format="color" />
+        <attr name="editTextTextColor" format="color" />
+        <attr name="plaqueDrawable" format="reference" />
+        <attr name="bottomNavigationTheme" format="reference" />
+        <attr name="bottomNavigationBackground" format="color" />
+        <attr name="bottomNavigationTint" format="color" />
+        <attr name="cardViewBackgroundColor" format="color" />
+        <attr name="appNameTextColor" format="color" />
+        <attr name="cardItemBackgroundColor" format="color" />
+        <attr name="carNameTextColor" format="color" />
+        <attr name="parkStatusTint" format="color" />
+        <attr name="lineColor" format="color" />
+        <attr name="floatActionButtonBackgroundTint" format="color" />
+        <attr name="buttonBackgroundTint" format="color" />
+        <attr name="buttonBackgroundRippleColor" format="color" />
+        <attr name="dialogButtonTextColor" format="color" />
+    </declare-styleable>
+</resources>

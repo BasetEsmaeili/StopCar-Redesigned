@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fragmentHistory"
+        android:icon="@drawable/ic_history"
+        android:title="@string/label_history" />
+    <item
+        android:id="@+id/fragmentNewPark"
+        android:icon="@drawable/ic_add_new_park"
+        android:title="@string/label_new_park" />
+    <item
+        android:id="@+id/fragmentManageCars"
+        android:icon="@drawable/ic_car_management"
+        android:title="@string/label_manage_cars" />
+    <item
+        android:id="@+id/fragmentMenu"
+        android:icon="@drawable/ic_car_menu"
+        android:title="@string/label_menu" />
+</menu>

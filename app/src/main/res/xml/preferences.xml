@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        app:icon="@drawable/ic_design_icon"
+        app:title="@string/label_design">
+        <SwitchPreferenceCompat
+            app:icon="@drawable/ic_night_mode"
+            app:iconSpaceReserved="false"
+            app:key="darkNight"
+            app:summary="@string/label_night_mode_description"
+            app:title="@string/label_night_mode" />
+        <ListPreference
+            app:defaultValue="0"
+            app:entries="@array/fonts"
+            app:entryValues="@array/fonts_number"
+            app:icon="@drawable/ic_font_download_24dp"
+            app:key="fontTypeface"
+            app:negativeButtonText="@string/label_cancel"
+            app:summary="@string/label_select_app_font"
+            app:title="@string/label_app_font" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        app:icon="@drawable/ic_public_black_24dp"
+        app:title="@string/label_public_settings">
+        <Preference
+            app:icon="@drawable/ic_clear_all_24dp"
+            app:key="clearDatabase"
+            app:summary="@string/label_clear_all_data_description"
+            app:title="@string/label_clear_all_data" />
+
+        <CheckBoxPreference
+            app:defaultValue="true"
+            app:icon="@drawable/ic_traffic_24dp"
+            app:key="trafficMap"
+            app:summary="@string/label_show_traffic_description"
+            app:title="@string/label_show_traffic" />
+
+        <ListPreference
+            app:defaultValue="0"
+            app:entries="@array/app_languages"
+            app:entryValues="@array/app_languages_number"
+            app:icon="@drawable/ic_language_24dp"
+            app:key="appLocale"
+            app:negativeButtonText="@string/label_cancel"
+            app:summary="@string/label_select_app_language_description"
+            app:title="@string/label_select_app_language" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/label_other">
+        <Preference
+            app:key="contactMe"
+            app:icon="@drawable/ic_contact_mail_24dp"
+            app:title="@string/label_contact_me" />
+        <Preference
+            app:icon="@drawable/ic_code_24dp"
+            app:key="credits"
+            app:summary="@string/label_credits_summary"
+            app:title="@string/label_credits" />
+        <Preference
+            android:key="appVersion"
+            app:icon="@drawable/ic_assignment_ind_24dp"
+            app:summary="@string/label_app_version"
+            app:title="@string/app_name" />
+    </PreferenceCategory>
+</PreferenceScreen>

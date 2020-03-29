@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="ir.esmaeili.stopcar.adapter.ParkHistoryAdapter" />
+
+        <variable
+            name="animation"
+            type="jp.wasabeef.recyclerview.animators.BaseItemAnimator" />
+
+        <variable
+            name="layoutManager"
+            type="androidx.recyclerview.widget.RecyclerView.LayoutManager" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/backgroundColor"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_park_history"
+            itemsDecoration="@{14}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            bind:adapter="@{adapter}"
+            bind:itemAnimator="@{animation}"
+            bind:layoutManager="@{layoutManager}" />
+
+        <FrameLayout
+            android:id="@+id/frame_history_empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="@dimen/_180mdp"
+                android:layout_height="@dimen/_180mdp"
+                android:layout_gravity="center"
+                android:src="@drawable/history_empty" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_78mdp"
+                android:gravity="center"
+                android:text="@string/label_history_empty"
+                android:textSize="@dimen/_18font_mdp" />
+        </FrameLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

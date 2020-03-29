@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ir.esmaeili.stopcar.ui.fragments.intro.IntroPagerViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/anim_intro_lottie"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_210mdp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_intro_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8mdp"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:layout_marginEnd="@dimen/_8mdp"
+            android:text="@{viewModel.title}"
+            android:textColor="?attr/titleTextColor"
+            android:textSize="@dimen/_14font_mdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/anim_intro_lottie"
+            tools:text="@string/label_intro_title_1" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_intro_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8mdp"
+            android:layout_marginTop="@dimen/_8mdp"
+            android:layout_marginEnd="@dimen/_45font_mdp"
+            android:text="@{viewModel.description}"
+            android:textColor="?attr/textViewColorGray"
+            android:textSize="@dimen/_12font_mdp"
+            app:layout_constraintTop_toBottomOf="@id/tv_intro_title"
+            tools:text="@string/label_intro_description_1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

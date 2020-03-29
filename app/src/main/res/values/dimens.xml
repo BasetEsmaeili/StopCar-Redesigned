@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_stn">8dp</dimen>
+    <dimen name="radius_pager">6dp</dimen>
+    <dimen name="margin_stn">8dp</dimen>
+    <dimen name="radius_corner_stn">6dp</dimen>
+    <dimen name="margin_mini">4dp</dimen>
+    <dimen name="padding_mini">4dp</dimen>
+    <dimen name="radius_card_corner">4dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="elevation_stn">6dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="elevation_mini">2dp</dimen>
+    <dimen name="width_map_marker">64dp</dimen>
+    <dimen name="height_map_marker">64dp</dimen>
+    <dimen name="width_progressbar_new_park">38dp</dimen>
+    <dimen name="height_text_view_info">@dimen/_240mdp</dimen>
+    <dimen name="size_toolbar_new_park">16sp</dimen>
+    <dimen name="width_border">3dp</dimen>
+</resources>

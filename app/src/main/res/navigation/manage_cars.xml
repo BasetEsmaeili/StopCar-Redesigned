@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentManageCars"
+    app:startDestination="@id/fragmentManageCars">
+    <fragment
+        android:id="@+id/fragmentManageCars"
+        android:name="ir.esmaeili.stopcar.ui.fragments.cars.ManageCarsFragment"
+        android:label="FragmentManageCars"
+        tools:layout="@layout/fragment_manage_cars">
+        <action
+            android:id="@+id/action_fragmentManageCars_to_addNewCarDialogFragment"
+            app:destination="@id/addNewCarDialogFragment"
+            app:popUpTo="@id/fragmentManageCars" />
+    </fragment>
+    <dialog
+        android:id="@+id/addNewCarDialogFragment"
+        android:name="ir.esmaeili.stopcar.ui.fragments.cars.NewCarDialogFragment"
+        android:label="@string/label_add_new_car"
+        tools:layout="@layout/dialog_new_car" />
+
+</navigation>

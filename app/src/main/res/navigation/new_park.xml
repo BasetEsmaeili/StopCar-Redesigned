@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentNewPark"
+    app:startDestination="@id/fragmentNewPark">
+    <fragment
+        android:id="@+id/fragmentNewPark"
+        android:name="ir.esmaeili.stopcar.ui.fragments.park.NewParkFragment"
+        android:label="FragmentNewPark"
+        tools:layout="@layout/fragment_new_park">
+
+        <action
+            android:id="@+id/action_fragmentNewPark_to_saveCarDialogFragment"
+            app:destination="@id/saveCarDialogFragment"
+            app:popUpTo="@id/fragmentNewPark" />
+    </fragment>
+    <dialog
+        android:id="@+id/saveCarDialogFragment"
+        android:name="ir.esmaeili.stopcar.ui.fragments.park.SelectCarDialogFragment"
+        tools:layout="@layout/dialog_select_car" />
+</navigation>

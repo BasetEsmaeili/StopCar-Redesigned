@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ir.esmaeili.stopcar.ui.activity.EventMessageViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginEnd="@dimen/margin_medium"
+        app:cardCornerRadius="@dimen/radius_corner_stn"
+        app:cardElevation="@dimen/elevation_stn">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/card_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_stn"
+            bind:backgroundColor="@{viewModel.background}"
+            tools:background="@color/color_alert_message">
+
+            <ImageView
+                android:id="@+id/img_event_icon"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                bind:imageDrawable="@{viewModel.icon}"
+                tools:src="@drawable/parking_app_icon" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_event_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{viewModel.title}"
+                android:textColor="@android:color/white"
+                app:layout_constraintStart_toEndOf="@+id/img_event_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="خطا در اطلاعات ورودی" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_event_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_mini"
+                android:text="@{viewModel.description}"
+                android:textColor="@android:color/white"
+                app:layout_constraintStart_toEndOf="@+id/img_event_icon"
+                app:layout_constraintTop_toBottomOf="@+id/tv_event_title"
+                tools:text="توضیحات مربوط به پیغام" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

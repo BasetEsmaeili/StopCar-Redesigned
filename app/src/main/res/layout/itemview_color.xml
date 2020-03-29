@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.graphics.Color" />
+
+        <variable
+            name="viewModel"
+            type="ir.esmaeili.stopcar.ui.fragments.newcar.CarColorPickerViewModel" />
+    </data>
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:onClick="@{()->viewModel.onItemClick()}"
+        android:src="@{Color.parseColor(viewModel.color)}"
+        app:civ_border_color="@color/unselectedColor"
+        app:civ_border_width="@dimen/width_border"
+        tools:src="@color/colorAccent" />
+</layout>

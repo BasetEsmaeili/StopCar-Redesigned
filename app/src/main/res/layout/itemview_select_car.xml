@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.graphics.Color" />
+
+
+        <variable
+            name="viewModel"
+            type="ir.esmaeili.stopcar.ui.fragments.park.SelectCarItemViewViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:onClick="@{()->viewModel.onCarSelected()}"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_select_car_icon"
+            android:layout_width="110dp"
+            android:layout_height="82dp"
+            app:colorFilter="@{Color.parseColor(viewModel.carColor)}"
+            app:srcCompat="@drawable/ic_history_car_icon" />
+
+        <TextView
+            android:id="@+id/tv_select_car_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@{viewModel.carName}"
+            tools:text="سمند سورن نقره ای" />
+
+        <include
+            android:id="@+id/view_car_plaque"
+            layout="@layout/view_plaque"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_stn" />
+    </LinearLayout>
+</layout>

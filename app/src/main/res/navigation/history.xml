@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentHistory"
+    app:startDestination="@id/fragmentHistory">
+    <fragment
+        android:id="@+id/fragmentHistory"
+        android:name="ir.esmaeili.stopcar.ui.fragments.history.HistoryFragment"
+        android:label="FragmentHistory"
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_fragmentHistory_to_fragmentHistoryDetails"
+            app:destination="@id/fragmentHistoryDetails"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/fragmentHistory">
+            <argument
+                android:name="HistoryArgs"
+                app:argType="ir.esmaeili.stopcar.models.HistoryJoinCar" />
+        </action>
+        <argument
+            android:name="HistoryArgs"
+            app:argType="ir.esmaeili.stopcar.models.HistoryJoinCar" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHistoryDetails"
+        android:name="ir.esmaeili.stopcar.ui.fragments.detail.HistoryDetailsFragment"
+        android:label="FragmentHistoryDetails"
+        tools:layout="@layout/fragment_history_details" />
+</navigation>
