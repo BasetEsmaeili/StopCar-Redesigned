@@ -9,10 +9,9 @@ class ApiHelperImpl(retrofit: Retrofit) :
     private val apiHelper: ApiHelper = retrofit.create(ApiHelper::class.java)
     override fun geoCoderAddress(
         latitude: String,
-        longitude: String,
-        api_key: String
+        longitude: String
     ): Single<AddressGeoCoder> {
-        return apiHelper.geoCoderAddress(latitude, longitude, api_key)
+        return apiHelper.geoCoderAddress(latitude, longitude)
     }
 
 

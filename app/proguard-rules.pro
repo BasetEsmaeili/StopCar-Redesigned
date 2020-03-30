@@ -25,5 +25,4 @@
   **[] $VALUES;
   public *;
 }
--keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 -keepattributes *Annotation*

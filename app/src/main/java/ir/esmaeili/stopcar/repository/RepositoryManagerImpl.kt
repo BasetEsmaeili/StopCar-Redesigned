@@ -28,10 +28,9 @@ class RepositoryManagerImpl @Inject constructor(
 
     override fun geoCoderAddress(
         latitude: String,
-        longitude: String,
-        api_key: String
+        longitude: String
     ): Single<AddressGeoCoder> {
-        return apiHelperImpl.geoCoderAddress(latitude, longitude, api_key)
+        return apiHelperImpl.geoCoderAddress(latitude, longitude)
     }
 
     override fun editSharedPreference(key: String, value: Any) {

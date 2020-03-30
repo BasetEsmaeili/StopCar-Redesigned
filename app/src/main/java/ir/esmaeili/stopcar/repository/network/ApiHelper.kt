@@ -12,8 +12,7 @@ interface ApiHelper {
     @GET("reverse?")
     fun geoCoderAddress(
         @Query("lat") latitude: String,
-        @Query("lng") longitude: String,
-        @Header("Api-Key") api_key: String
+        @Query("lng") longitude: String
     ): Single<AddressGeoCoder>
 
 

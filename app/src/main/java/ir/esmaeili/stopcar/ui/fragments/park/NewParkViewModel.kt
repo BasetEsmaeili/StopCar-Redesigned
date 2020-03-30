@@ -109,8 +109,7 @@ class NewParkViewModel(
         geoCoderDisposable
             .add(repositoryManager.geoCoderAddress(
                 latLng.latitude.toString(),
-                latLng.longitude.toString(),
-                repositoryManager.getNeshanApiKey()
+                latLng.longitude.toString()
             ).delaySubscription(Constants.DELAY_GEO_ADDRESS_REQUEST, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())

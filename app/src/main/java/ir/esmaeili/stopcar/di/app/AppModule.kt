@@ -14,10 +14,8 @@ import ir.esmaeili.stopcar.repository.database.AppDataBase
 import ir.esmaeili.stopcar.repository.local.StaticDataHelperImpl
 import ir.esmaeili.stopcar.repository.network.ApiHelperImpl
 import ir.esmaeili.stopcar.repository.preferences.PreferencesHelperImpl
-import ir.esmaeili.stopcar.utils.Constants
-import ir.esmaeili.stopcar.utils.MapHelper
-import ir.esmaeili.stopcar.utils.SimpleViewModelProviderFactory
-import ir.esmaeili.stopcar.utils.Utils
+import ir.esmaeili.stopcar.utils.*
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -91,8 +89,19 @@ class AppModule {
 
     @Provides
     @AppScope
-    fun providerRetrofit(gsonConverterFactory: GsonConverterFactory): Retrofit {
+    fun providerOKHttpClient(): OkHttpClient {
+        return OkHttpClient().newBuilder()
+            .addInterceptor(AuthInterceptor()).build()
+    }
+
+    @Provides
+    @AppScope
+    fun providerRetrofit(
+        gsonConverterFactory: GsonConverterFactory,
+        okHttpClient: OkHttpClient
+    ): Retrofit {
         return Retrofit.Builder().baseUrl(Constants.GEO_BASE_URL)
+            .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
