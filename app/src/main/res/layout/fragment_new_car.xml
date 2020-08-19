@@ -64,6 +64,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:inputType="text"
+                        android:maxLength="20"
                         android:singleLine="true"
                         android:textColor="?attr/editTextTextColor" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -85,6 +86,7 @@
                         android:layout_height="match_parent"
                         android:imeOptions="actionDone"
                         android:inputType="text"
+                        android:maxLength="20"
                         android:singleLine="true"
                         android:textColor="?attr/editTextTextColor" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -155,8 +157,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layoutDirection="rtl"
                     android:baselineAligned="false"
+                    android:layoutDirection="rtl"
                     android:orientation="horizontal"
                     android:weightSum="4"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -229,6 +231,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="text"
+                            android:maxLength="1"
                             android:singleLine="true"
                             android:textColor="?attr/editTextTextColor" />
                     </com.google.android.material.textfield.TextInputLayout>

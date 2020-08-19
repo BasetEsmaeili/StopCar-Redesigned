@@ -121,6 +121,24 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
         customMessageViewModel.setTitle(alertView.getTitle());
         customMessageViewModel.setDescription(alertView.getDescription());
         customMessageBinding.setViewModel(customMessageViewModel);
+        switch (getCurrentTypeface()) {
+            case Constants.VAZIR_FONT_NAME:
+                customMessageBinding.tvEventTitle.setTypeface(utils.setTypeface(Constants.VAZIR_FONT_NAME));
+                customMessageBinding.tvEventDescription.setTypeface(utils.setTypeface(Constants.VAZIR_FONT_NAME));
+                break;
+            case Constants.TANHA_FONT_NAME:
+                customMessageBinding.tvEventTitle.setTypeface(utils.setTypeface(Constants.TANHA_FONT_NAME));
+                customMessageBinding.tvEventDescription.setTypeface(utils.setTypeface(Constants.TANHA_FONT_NAME));
+                break;
+            case Constants.PARASTOO_FONT_NAME:
+                customMessageBinding.tvEventTitle.setTypeface(utils.setTypeface(Constants.PARASTOO_FONT_NAME));
+                customMessageBinding.tvEventDescription.setTypeface(utils.setTypeface(Constants.PARASTOO_FONT_NAME));
+                break;
+            case Constants.MIKHAK_FONT_NAME:
+                customMessageBinding.tvEventTitle.setTypeface(utils.setTypeface(Constants.MIKHAK_FONT_NAME));
+                customMessageBinding.tvEventDescription.setTypeface(utils.setTypeface(Constants.MIKHAK_FONT_NAME));
+                break;
+        }
         Toast toast = new Toast(context);
         toast.setGravity(Gravity.TOP, 0, 0);
         toast.setDuration(Toast.LENGTH_SHORT);

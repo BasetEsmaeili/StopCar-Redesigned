@@ -37,7 +37,7 @@
             app:title="@string/label_show_traffic" />
 
         <ListPreference
-            app:defaultValue="0"
+            app:defaultValue="1"
             app:entries="@array/app_languages"
             app:entryValues="@array/app_languages_number"
             app:icon="@drawable/ic_language_24dp"

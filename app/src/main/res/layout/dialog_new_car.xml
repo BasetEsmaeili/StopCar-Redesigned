@@ -80,6 +80,7 @@
                         android:layout_height="match_parent"
                         android:inputType="text"
                         android:singleLine="true"
+                        android:maxLength="15"
                         android:textColor="?attr/editTextTextColor" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,6 +101,7 @@
                         android:layout_height="match_parent"
                         android:imeOptions="actionDone"
                         android:inputType="text"
+                        android:maxLength="15"
                         android:singleLine="true"
                         android:textColor="?attr/editTextTextColor" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -262,6 +264,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:inputType="text"
+                            android:maxLength="1"
                             android:singleLine="true"
                             android:textColor="?attr/editTextTextColor" />
                     </com.google.android.material.textfield.TextInputLayout>

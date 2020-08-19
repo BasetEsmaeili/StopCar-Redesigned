@@ -16,7 +16,7 @@ public class LocaleWrapper {
     private static Locale locale;
 
     public static Context onAttach(Context context) {
-        String lang = PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.KEY_LOCALE, "");
+        String lang = PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.KEY_LOCALE, "1");
         if (lang.equals("0")) {
             locale = new Locale("en-us");
         } else if (lang.equals("1")) {
